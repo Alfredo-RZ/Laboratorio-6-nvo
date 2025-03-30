@@ -10,6 +10,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
         nav {
             background-color: #333;
@@ -34,6 +35,30 @@
             width: 300px;
             height: auto;
             margin-top: 20px;
+            border-radius: 10px;
+        }
+        .trivia-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
         }
     </style>
 </head>
@@ -46,7 +71,30 @@
     <div class="container">
         <h1>Bienvenido a mi página</h1>
         <img src="imagenes/download.jpeg" alt="GATO ENOJADO">
+        
+        <div class="trivia-box">
+            <h2>Trivia Gamer</h2>
+            <p id="trivia-text">Haz clic para conocer un dato curioso sobre videojuegos.</p>
+            <button onclick="mostrarTrivia()">Mostrar trivia</button>
+        </div>
     </div>
+
+    <script>
+        const trivias = [
+            "¿Sabías que el primer videojuego fue creado en 1958 y se llamaba 'Tennis for Two'?",
+            "Mario fue originalmente un carpintero llamado Jumpman en Donkey Kong.",
+            "La serie The Legend of Zelda fue inspirada por las aventuras de infancia de Shigeru Miyamoto explorando cuevas.",
+            "Pac-Man fue diseñado para atraer a las mujeres a los salones recreativos.",
+            "El mapa completo de Skyrim es aproximadamente del tamaño de Manhattan.",
+            "Minecraft fue creado en solo 6 días por Markus Persson, también conocido como Notch.",
+            "Final Fantasy se llamó así porque iba a ser el último juego de su creador... y resultó ser el primero de muchos.",
+            "La voz de Mario es hecha por Charles Martinet desde 1995."
+        ];
+
+        function mostrarTrivia() {
+            const randomIndex = Math.floor(Math.random() * trivias.length);
+            document.getElementById('trivia-text').textContent = trivias[randomIndex];
+        }
+    </script>
 </body>
 </html>
-
